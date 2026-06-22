@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ella Rust | Class of 2028 Defender</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0A369D;
+            --royal-blue: #0052CC;
+            --accent-red: #D90429;
+            --dark-navy: #111827;
+            --light-bg: #F3F4F6;
+            --white: #FFFFFF;
+            --gray-text: #4B5563;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-navy);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- HEADER / HERO SECTION --- */
+        header {
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            border-bottom: 5px solid var(--accent-red);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 350px 1fr;
+            }
+        }
+
+        .hero-image-container {
+            text-align: center;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 12px;
+            border: 4px solid var(--white);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #93C5FD;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-bottom: 25px;
+            color: #E5E7EB;
+        }
+
+        .key-stats-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            font-size: 0.95rem;
+        }
+
+        .badge.highlight {
+            background-color: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        /* --- MAIN CONTENT LAYOUT --- */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .main-layout {
+                grid-template-columns: 350px 1fr;
+            }
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 10px;
+        }
+
+        .contact-list, .sidebar-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 15px;
+        }
+
+        .contact-label {
+            font-weight: 700;
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--gray-text);
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            word-break: break-all;
+        }
+
+        .contact-value a {
+            color: var(--royal-blue);
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .sidebar-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        /* --- MAIN CONTENT BODY --- */
+        .content-body {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: var(--dark-navy);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 3px;
+            background-color: var(--royal-blue);
+        }
+
+        .timeline-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--royal-blue);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-date {
+            background-color: var(--light-bg);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--primary-blue);
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            color: var(--dark-navy);
+        }
+
+        .timeline-subtitle {
+            font-weight: 600;
+            color: var(--accent-red);
+            margin-bottom: 15px;
+        }
+
+        .timeline-details {
+            list-style-type: square;
+            padding-left: 20px;
+            color: var(--gray-text);
+        }
+
+        .timeline-details li {
+            margin-bottom: 8px;
+        }
+
+        /* --- REFERENCES GRID --- */
+        .references-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .references-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .ref-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--dark-navy);
+        }
+
+        .ref-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .ref-title {
+            font-size: 0.9rem;
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header>
+        <div class="hero-grid">
+            <div class="hero-image-container">
+                <!-- Using the verbatim file name requested -->
+                <img src="EllaODPPicture.jpg" alt="Ella Rust Portrait">
+            </div>
+            <div class="hero-text">
+                <h1>Ella Rust</h1>
+                <div class="hero-subtitle">Class of 2028 | Defender (Center Back)</div>
+                <p class="bio-text">
+                    I am a Center Back from Westborough, MA. I have been playing soccer for 12 years, currently playing in the Girls Academy. I've started every game for my high school varsity team since my freshman year, and was selected for the ODP East Region team this past year. I love to compete, and am excited for the opportunity to play college soccer at the highest level possible! I can't wait to meet you!
+                </p>
+                <div class="key-stats-badges">
+                    <div class="badge highlight">GPA 4.346</div>
+                    <div class="badge">Height: 5'6"</div>
+                    <div class="badge">Weight: 145 lbs</div>
+                    <div class="badge">NCAA ID: #2507681855</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-layout">
+            
+            <!-- LEFT SIDEBAR -->
+            <div class="sidebar">
+                
+                <!-- CONTACT CARD -->
+                <div class="card">
+                    <h2>Contact Information</h2>
+                    <ul class="contact-list">
+                        <li>
+                            <span class="contact-label">Phone</span>
+                            <span class="contact-value"><a href="tel:617-922-2082">617-922-2082</a></span>
+                        </li>
+                        <li>
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value"><a href="mailto:ellarustsoccer@gmail.com">ellarustsoccer@gmail.com</a></span>
+                        </li>
+                        <li>
+                            <span class="contact-label">Instagram</span>
+                            <span class="contact-value"><a href="https://instagram.com/ellarust_2010" target="_blank">@ellarust_2010</a></span>
+                        </li>
+                        <li>
+                            <span class="contact-label">YouTube Channel</span>
+                            <span class="contact-value"><a href="https://youtube.com/@EllaRustSoccer" target="_blank">@EllaRustSoccer</a></span>
+                        </li>
+                        <li>
+                            <span class="contact-label">Address</span>
+                            <span class="contact-value">28 Old Colony Dr.<br>Westborough, MA 01581</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ACADEMICS CARD -->
+                <div class="card">
+                    <h2>Academics</h2>
+                    <ul class="contact-list">
+                        <li>
+                            <span class="contact-label">Graduation Year</span>
+                            <span class="contact-value">Class of 2028</span>
+                        </li>
+                        <li>
+                            <span class="contact-label">GPA</span>
+                            <span class="contact-value">4.346</span>
+                        </li>
+                        <li>
+                            <span class="contact-label">Honors</span>
+                            <span class="contact-value">National Honor Society</span>
+                        </li>
+                        <li>
+                            <span class="contact-label">Academic Interest</span>
+                            <span class="contact-value">Finance / Accounting</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ATHLETIC ACCOMPLISHMENTS -->
+                <div class="card">
+                    <h2>Athletic Honors</h2>
+                    <ul class="sidebar-list">
+                        <li>'26 GA Northeast Conference Talent ID Selection</li>
+                        <li>'26 ODP East Region Team Selection</li>
+                        <li>'25 League All Star</li>
+                        <li>'24 Division 2 State Semi-Finals</li>
+                    </ul>
+                </div>
+
+                <!-- OTHER ACHIEVEMENTS -->
+                <div class="card">
+                    <h2>Other Achievements</h2>
+                    <ul class="sidebar-list">
+                        <li>Krav Maga Black Belt Training</li>
+                        <li>Brazilian Jiu-Jitsu Training</li>
+                        <li>Fluent in German & Spanish</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- RIGHT MAIN BODY -->
+            <div class="content-body">
+                
+                <!-- SOCCER EXPERIENCE SECTION -->
+                <section>
+                    <h2 class="section-title">Soccer Experience</h2>
+                    
+                    <!-- High School -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Westborough High School</h3>
+                            <span class="timeline-date">2024 - 2026</span>
+                        </div>
+                        <div class="timeline-subtitle">Girls Soccer Varsity | #18 | Captain | Center Back</div>
+                        <ul class="timeline-details">
+                            <li><strong>'26 Junior:</strong> Captain, Varsity, Starting Center Back</li>
+                            <li><strong>'25 Sophomore:</strong> Varsity, Starting Center Back</li>
+                            <li><strong>'24 Freshman:</strong> Varsity, Starting Center Back</li>
+                        </ul>
+                    </div>
+
+                    <!-- Club -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Club: Bayside FC</h3>
+                            <span class="timeline-date">2025 - 2026</span>
+                        </div>
+                        <div class="timeline-subtitle">Girls Academy | #31 | Center Back</div>
+                        <ul class="timeline-details">
+                            <li>'26 GA Northeast Conference Talent ID Selection</li>
+                        </ul>
+                    </div>
+
+                    <!-- ODP -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">ODP: Olympic Development Program</h3>
+                            <span class="timeline-date">2022 - 2026</span>
+                        </div>
+                        <div class="timeline-subtitle">East Region, Massachusetts | #6 | Center Back</div>
+                        <ul class="timeline-details">
+                            <li>'26 Interregionals East Region Team Selection</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- REFERENCES SECTION -->
+                <section>
+                    <h2 class="section-title">References</h2>
+                    <div class="references-grid">
+                        
+                        <div class="ref-card">
+                            <div class="ref-name">Scott Moroney</div>
+                            <div class="ref-title">High School Head Coach</div>
+                            <p><strong>Phone:</strong> 508-951-1654</p>
+                            <p><strong>Email:</strong> moroneys@westboroughk12.org</p>
+                        </div>
+
+                        <div class="ref-card">
+                            <div class="ref-name">Meg Hight</div>
+                            <div class="ref-title">High School Asst. Coach</div>
+                            <p><strong>Phone:</strong> 508-439-9784</p>
+                        </div>
+
+                        <div class="ref-card">
+                            <div class="ref-name">Tony Vieira</div>
+                            <div class="ref-title">Club Coach (Bayside FC)</div>
+                            <p><strong>Phone:</strong> 401-598-6155</p>
+                            <p><strong>Email:</strong> tvieira@baysidefc.com</p>
+                        </div>
+
+                        <div class="ref-card">
+                            <div class="ref-name">Steve Cimino</div>
+                            <div class="ref-title">Personal Trainer / Coach</div>
+                            <p><strong>Phone:</strong> 617-448-7292</p>
+                            <p><strong>Email:</strong> steve@prototypetraining.com</p>
+                        </div>
+
+                        <div class="ref-card">
+                            <div class="ref-name">Paul Mumby</div>
+                            <div class="ref-title">Mentor / Coach</div>
+                            <p><strong>Phone:</strong> 508-292-6082</p>
+                            <p><strong>Email:</strong> paul@bestfc.org</p>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ella Rust Recruitment Profile. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
