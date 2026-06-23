@@ -11,6 +11,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        // ==========================================
+        // CONFIGURATION: UPDATE ELLA'S VIDEO ID HERE
+        // ==========================================
+        const CURRENT_HIGHLIGHT_VIDEO_ID = "N1Wq_STBsbY?si=bsLGM1bvST0YvXty";
+
+        // This logic automatically builds and sets the secure embed URL
+        document.addEventListener("DOMContentLoaded", function() {
+            const player = document.getElementById("highlight-player");
+            if (player && CURRENT_HIGHLIGHT_VIDEO_ID) {
+                player.src = `https://www.youtube-nocookie.com/embed/${CURRENT_HIGHLIGHT_VIDEO_ID}`;
+            }
+        });
+    </script>
+
     <style>
         :root {
             --primary-blue: #0A369D;
@@ -524,17 +539,19 @@
 
                 <!-- SOCCER HIGHLIGHTS VIDEO SECTION -->
                 <section style="margin-bottom: 30px;">
-                    <!-- We use your existing class, and just add flex utility styles to handle the layout -->
                     <h2 class="section-title" style="display: flex; justify-content: space-between; align-items: baseline;">
                         <span>Soccer Highlights</span>
-        
-                        <!-- The link sits inside the H2 so it stays above the class's built-in blue line -->
                         <a href="https://youtube.com/@EllaRustSoccer" target="_blank" style="color: inherit; font-weight: 600; text-decoration: none; font-size: 0.9rem; text-transform: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
                                 View All Videos on YouTube →
                         </a>
                     </h2>
                     <div class="video-container" style="margin-top": 15px;">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/N1Wq_STBsbY?si=bsLGM1bvST0YvXty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<iframe
+			    width="560"
+			    height="315"
+			    id="highlight-player"
+                            src=""
+https://www.youtube.com/embed/N1Wq_STBsbY?si=bsLGM1bvST0YvXty" title="Ella Rust Soccer Highlight Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </section>
 
