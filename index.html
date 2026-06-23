@@ -290,6 +290,27 @@
             margin-bottom: 8px;
         }
 
+        /* --- Highlights --- */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         /* --- REFERENCES GRID --- */
         .references-grid {
             display: grid;
@@ -498,6 +519,22 @@
                         <ul class="timeline-details">
                             <li>'26 Interregionals East Region Team Selection</li>
                         </ul>
+                    </div>
+                </section>
+
+                <!-- SOCCER HIGHLIGHTS VIDEO SECTION -->
+                <section style="margin-bottom: 30px;">
+                    <!-- We use your existing class, and just add flex utility styles to handle the layout -->
+                    <h2 class="section-title" style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <span>Soccer Highlights</span>
+        
+                        <!-- The link sits inside the H2 so it stays above the class's built-in blue line -->
+                        <a href="https://youtube.com/@EllaRustSoccer" target="_blank" style="color: inherit; font-weight: 600; text-decoration: none; font-size: 0.9rem; text-transform: none; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                                View All Videos on YouTube →
+                        </a>
+                    </h2>
+                    <div class="video-container" style="margin-top": 15px;">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/N1Wq_STBsbY?si=bsLGM1bvST0YvXty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </section>
 
